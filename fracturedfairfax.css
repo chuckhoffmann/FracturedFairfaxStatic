@@ -1,0 +1,241 @@
+body{
+	background-color: #fff8f0;
+	font-family: sans-serif;
+	margin:0;
+	padding:0
+	}
+
+a{
+		text-decoration:none;
+	}
+p{
+	display: block;
+	line-height:1.6em;
+	margin-bottom: 7px;
+	margin-top: 7px
+	}
+	
+h1, h2, h3 {
+	
+	margin-bottom:0.3em;
+	}
+
+ul {
+	list-style-type:circle;
+	margin-top:0.3em;
+	margin-bottom:0;
+}
+
+ol {
+	list-style-type:decimal;
+	margin-top:0.3em;
+	margin-bottom:0;
+	
+} 
+
+li {
+	line-height:1.6em;
+	margin-top: 0.1em;
+}
+
+th, td {
+	font-family: sans-serif;
+}	
+sup, sub {
+	line-height:1;
+}
+#header{
+	height:118px;
+	width:100%
+	}
+/*container holds the navigation and content divs */
+#container{
+	vertical-align:top;
+}
+
+#navigation {
+	height:1.0em;
+	margin-bottom:0.3em;
+	margin-left:170px;
+	}
+
+#search {
+	height:1.0em;
+	width:18em;
+	right:0;
+	float:right;
+	position:relative;
+	top:-0.6em
+}
+
+#content{
+	background-color: #ffffff;
+	border-bottom: 1px solid #c0cccc;
+	border-left: 1px solid #c0cccc;
+	border-top: 1px solid #c0cccc;
+	font-size: .875em;
+	margin-top:0px;
+	margin-left:170px;
+	padding-bottom:1em;
+	padding-left:0.75em;
+	padding-right:0.75em;
+	padding-top:0.5em;
+}
+#content h1, h2{
+	border-bottom: 1px solid #c0cccc;
+	font-family: 'Linux Libertine', Georgia, Times, serif;
+	font-weight:normal;
+}
+
+#toc{
+	background-color: #f0f0ff;
+	border:1px solid #c0cccc;
+	display:table;
+	font-size:.9em;
+}
+
+#toc ul{
+	list-style-type:none;
+	margin-top:0;
+	padding-left: .5em;
+    padding-right: .5em;
+}
+#toctitle h2{
+	border-bottom: 0px;
+	font-family: sans-serif;
+	font-size:1em;
+	font-weight:bolder;
+	margin-bottom:0;
+	text-align:center;
+}
+#firstHeading{
+	border-bottom: 1px solid #c0cccc;
+	font-family: 'Linux Libertine', Georgia, Times, serif;
+	font-size: 2em;
+	font-weight:normal;
+	margin-bottom: .13em;
+	margin-top: 0px;
+	}
+
+#mw-normal-catlinks{
+	background-color: #f0f0ff;
+	border:1px solid #c0cccc;
+	margin-bottom:0.5em;
+	margin-top:1em;
+	padding-left:0.5em;
+	padding-right:.5em;
+}
+
+#mw-normal-catlinks ul{
+	display:inline;
+	list-style-type:none;
+	padding-left:0;
+}
+
+#mw-normal-catlinks ul li{
+	border-right:1px solid #c0cccc;
+	display:inline;
+	margin-right:.5em;
+	padding-right:0.5em;
+}
+
+#mw-normal-catlinks ul li:last-child{
+	border-right:0px;
+}
+
+#logo{
+	height: 160px;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 160px
+}
+
+#menuContainer{
+	position: absolute;
+	top: 165px
+	}
+	
+#menu{
+	list-style:none;
+	padding-left:14px;
+	text-align:left
+	}
+	
+#ad_Skyscraper{
+	background-color:white;
+	border:1px solid #c0cccc;
+	display:inline-block;
+	height:600px;
+	position:absolute;
+	top:260px;
+	left:4px;
+	width:160px
+}
+
+#ad_Leaderboard{
+	background-color:white;
+	border:1px solid #c0cccc;
+	display:inline-block;
+	height:90px;
+	left:180px;
+	position:absolute;
+	top:4px;
+	width:728px
+}
+
+#footer{
+	font-family: sans-serif;
+	font-size:.75em;
+	padding-top:.75em;
+	text-align:center;
+	width:100%
+	}
+
+.footer_element{
+	margin-left:.75em;
+	margin-right:.75em
+}
+
+.menu-item{
+	font-family: sans-serif;
+	font-size: .875em;
+	line-height: 1.1em;
+}
+
+.tab{
+	background-color:white;
+	border-left:1px solid #c0cccc;
+	border-right:1px solid #c0cccc;
+	font-size:.875em;
+	margin-bottom:0px;
+	padding-left:.5em;
+	padding-right:.5em;
+	padding-bottom:.4em;
+	padding-top:.3em;
+}
+
+/*Classes that belie the Mediawiki origin of the file */
+.mw-headline {
+	font-family: 'Linux Libertine', Georgia, Times, serif;
+	font-weight:normal
+}
+
+.new{
+	color:#ba0000
+}
+
+.mw-content-ltr{
+	column-count:2;
+	-moz-column-count: 2;
+	-webkit-column-count:2;
+}
+
+.mw-hidden-catlinks{
+	display: none;
+}
+
+/*Classes for Google Custom Search box */
+input.gsc-input{
+    font-size: 14px;
+}
