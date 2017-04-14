@@ -117,6 +117,10 @@ sup, sub {
 	margin-top: 0px;
 	}
 
+#catlinks{
+	clear:both;
+}
+
 #mw-normal-catlinks{
 	background-color: #f0f0ff;
 	border:1px solid #c0cccc;
@@ -233,6 +237,20 @@ sup, sub {
 
 .mw-hidden-catlinks{
 	display: none;
+}
+.wikitable{
+  border:1px solid #c0cccc;
+  border-collapse:collapse;
+}
+
+.wikitable tr th{
+  border:1px solid #c0cccc;
+  padding:0.2em 0.4em;
+  text-align:center;
+}
+.wikitable tr td{
+  border:1px solid #c0cccc;
+  padding:0.2em 0.4em;
 }
 
 /*Classes for Google Custom Search box */

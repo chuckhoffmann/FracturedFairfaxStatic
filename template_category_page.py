@@ -48,9 +48,13 @@ if u'categorieshtml' in parsedPage[u'parse']:
 else:
     categories = u''
 
+# remove the link to the "Special:Categories" page
+special_page_link = re.compile(
+    '<a href="\/wiki\/index\.php\/Special:Categories" title="Special:Categories">(Category|Categories)<\/a>')
+category_despecial = special_page_link.sub(r'\1', categories)
 #replace all the wikilinks for the categories
 catLink = re.compile(r'/wiki/index.php/([^"]+)')
-cleanCategories = catLink.sub(r'/\1.html',categories)
+cleanCategories = catLink.sub(r'/\1.html',category_despecial)
 
 #now take the newArticle text from the first section and the title and the
 #cleaned Categories HTML for the second part and combine it into one page
