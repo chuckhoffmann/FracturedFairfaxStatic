@@ -7,15 +7,19 @@ import boto3
 import StringIO
 import logging
 
-def get_article_json(source_title):
-    """Get the title and text of an article and return it as a json object"""
-    baseURL = u'http://192.168.1.14/wiki/api.php'
+def make_request_parameters(source_title):
     parameters = {'action':'parse',
                   'page':source_title,
                   'prop':'text|categorieshtml',
                   'disablelimitreport':'true',
                   'disableeditsection':'true',
                   'format':'json'}
+    return parameters
+
+def get_article_json(source_title):
+    """Get the title and text of an article and return it as a json object"""
+    baseURL = u'http://192.168.1.14/wiki/api.php'
+    parameters = make_request_parameters(source_title)
 
     r = requests.get(baseURL,params=parameters)
 
@@ -29,7 +33,7 @@ def replace_wiki_links(article_text):
     # "/wiki/index.php?title=Article&action=edit&redlink=1"""
     wiki_link = re.compile('\/wiki\/index\.php'                     #literal
                            '(?:\/|\?title=)'
-                           '([a-zA-Z0-9%.:_-]+)'
+                           '([a-zA-Z0-9%\.:_\-(),]+)'
                            '(?:&amp;action=edit&amp;redlink=1)?')
 
     cleaned_article_text = wiki_link.sub(r'/\1.html', article_text)
@@ -37,13 +41,15 @@ def replace_wiki_links(article_text):
     return cleaned_article_text
 
 def replace_category_links(category_text):
+    #remove the link to the "Special:Categories" page
+    special_page_link = re.compile('<a href="\/wiki\/index\.php\/Special:Categories" title="Special:Categories">(Category|Categories)<\/a>')
+    category_despecial, dummy = special_page_link.subn(r'\1', category_text)
     #replace all the wikilinks for the categories
     catLink = re.compile(r'/wiki/index.php/([^"]+)')
-    cleaned_categories, replacements = catLink.subn(r'/\1.html',category_text)
+    cleaned_categories, replacements = catLink.subn(r'/\1.html',category_despecial)
 
     #if no replacements were made, return an empty string so that
     #when page is assembled there won't be a categories section at all
-    #else return the cleaned categories
     if replacements == 0:
         cleaned_categories = u''
 
