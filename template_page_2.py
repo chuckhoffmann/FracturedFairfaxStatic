@@ -36,9 +36,22 @@ def replace_wiki_links(article_text):
                            '([a-zA-Z0-9%\.:_\-(),]+)'
                            '(?:&amp;action=edit&amp;redlink=1)?')
 
+    extant_link = re.compile('wiki\/index\.php\/'
+                             '([^"]+)') #regex for existing wiki articles
+    #regex for nonexistent wiki articles
+    nonexistent_link = re.compile('<a href="\/wiki\/index\.php\?[^>]+>'
+                                  '([^<]+)'
+                                  '<\/a>') #regex for nonexisting wiki articles
+
+    #replace existing article links
+    #replace nonexisting article links (redlinks)
+    el_replaced = extant_link.sub(r'\1.html', article_text)
+    cat = nonexistent_link.sub(r'\1', el_replaced)
+
     cleaned_article_text = wiki_link.sub(r'/\1.html', article_text)
 
-    return cleaned_article_text
+    #return cleaned_article_text
+    return cat
 
 def replace_category_links(category_text):
     #remove the link to the "Special:Categories" page
